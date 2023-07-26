@@ -1,4 +1,4 @@
-class finishGame {
+class FinishGame {
     constructor() {
         this.popUp = document.body.querySelector(".popup-container");
         this.title = this.popUp.querySelector('h2');
@@ -19,7 +19,7 @@ class finishGame {
     }
 }
 
-class UpdateUI extends finishGame {
+class UpdateUI extends FinishGame {
     constructor(index, arr) {
         super();
         this.index = index;
@@ -35,7 +35,7 @@ class UpdateUI extends finishGame {
         }
 
         if (Array.from(this.paragraphs).every(el => el.textContent !== "")) {
-            const reset = new finishGame();
+            const reset = new FinishGame();
             reset.win();
         }
     }
@@ -68,7 +68,7 @@ class UpdateUI extends finishGame {
             for (let i = 0; i < this.array.length; i++) {
                 this.paragraphs[i].textContent = this.array[i];
             }
-            const reset = new finishGame();
+            const reset = new FinishGame();
             reset.lose();
         }
     }
