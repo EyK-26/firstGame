@@ -82,7 +82,7 @@ class Guess extends UpdateUI {
     }
 
     guess() {
-        document.onkeyup = (event) => {
+        document.onkeydown = (event) => {
             const enteredLetter = event.key.toUpperCase();
             const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         if (alphabet.includes(enteredLetter)) {
@@ -97,6 +97,9 @@ class Guess extends UpdateUI {
         this.enteredLetters.push(letter);
         if (hasDuplicate) {
             this.notification.classList.add("show");
+            setTimeout(() => {
+                this.notification.classList.remove("show");
+            }, 3000);
         } else {
             this.notification.classList.remove("show");
         }
