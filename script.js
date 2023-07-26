@@ -2,8 +2,8 @@ class finishGame {
     constructor() {
         this.popUp = document.body.querySelector(".popup-container");
         this.title = this.popUp.querySelector('h2');
-        this.winMsg = "you won";
-        this.loseMsg = "you lost";
+        this.winMsg = "You Won !";
+        this.loseMsg = "You Lost !";
     }
 
     win() {
@@ -38,10 +38,22 @@ class UpdateUI extends finishGame {
         }
     }
 
-    showWrongLetter() {
+    addWrongLetter() {
         let wrongLetter = document.createElement('span');
-        wrongLetter.textContent = this.index;
+        wrongLetter.textContent = `${this.index} `;
         this.wrongLettersEl.appendChild(wrongLetter);
+    }
+
+    showWrongLetter() {
+        if (this.wrongLettersEl.childElementCount === 0) {
+            const title = document.createElement('p')
+            title.textContent = "Wrong";
+            this.wrongLettersEl.appendChild(title);
+            this.addWrongLetter();
+        } else {
+            this.addWrongLetter();
+        }
+        
 
         for (let i = 0; i < this.figure.length; i++) {
             if (this.figure[i].style.display !== "block") {
