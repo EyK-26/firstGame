@@ -41,7 +41,6 @@ class UpdateUI extends finishGame {
     }
 
     addWrongLetter() {
-        console.log(this.array)
         const wrongLetter = document.createElement('span');
         wrongLetter.textContent = `${this.index} `;
         this.wrongLettersEl.appendChild(wrongLetter);
