@@ -9,11 +9,13 @@ class finishGame {
     win() {
         this.title.textContent = this.winMsg;
         this.popUp.style.display = "flex";
+        window.onkeydown = event => {return;}
     }
 
     lose() {
         this.title.textContent = this.loseMsg;
         this.popUp.style.display = "flex"; 
+        window.onkeydown = event => {return;}
     }
 }
 
@@ -39,6 +41,7 @@ class UpdateUI extends finishGame {
     }
 
     addWrongLetter() {
+        console.log(this.array)
         const wrongLetter = document.createElement('span');
         wrongLetter.textContent = `${this.index} `;
         this.wrongLettersEl.appendChild(wrongLetter);
@@ -82,7 +85,7 @@ class Guess extends UpdateUI {
     }
 
     guess() {
-        document.onkeydown = (event) => {
+        window.onkeydown = event => {
             const enteredLetter = event.key.toUpperCase();
             const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         if (alphabet.includes(enteredLetter)) {
