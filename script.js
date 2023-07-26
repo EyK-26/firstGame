@@ -9,7 +9,6 @@ class finishGame {
     win() {
         this.title.textContent = this.winMsg;
         this.popUp.style.display = "flex";
-        
     }
 
     lose() {
@@ -29,7 +28,6 @@ class UpdateUI extends finishGame {
     }
 
     showLetter() {
-        console.log(this.array)
         for (const item of this.index) {
             this.paragraphs[item].textContent = this.array[item];
         }
@@ -74,8 +72,8 @@ class Guess extends UpdateUI {
     guess() {
         document.onkeyup = (event) => {
             const enteredLetter = event.key.toUpperCase();
-            const letterRegex = /[A-Z]/;
-        if (letterRegex.test(enteredLetter)) {
+            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (alphabet.includes(enteredLetter)) {
             this.verify(enteredLetter);
             this.checkRepetition(enteredLetter);
         }
